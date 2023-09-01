@@ -1,0 +1,865 @@
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.0.4/css/bootstrap5-toggle.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.0.4/js/bootstrap5-toggle.ecmas.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+        <!-- <link rel="stylesheet" href="css/style.css"> -->
+        <link rel="stylesheet" href='{% static "./static/css/style.css" %}'>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!------ Include the above in your HEAD tag ---------->
+
+        <!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="utf-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                        <meta
+                            name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+                            <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+                            <title>
+                                Vendor Registration Form</title>
+
+                            <!-- Bootstrap -->
+                            <!-- <link href="css/bootstrap.min.css" rel="stylesheet">
+                                <link href="css/dcalendar.picker.css" rel="stylesheet"> -->
+                                    <style type="text/css">
+                                        #deceased {
+                                            background-color: wheat;
+                                            padding-top: 10px;
+                                            margin-bottom: 10px;
+                                        }
+                                        #companydet {
+                                            background-color: white;
+                                            padding-top: 10px;
+                                            margin-bottom: 10px;
+                                        }
+                                        .remove_field {
+                                            float: right;
+                                            cursor: pointer;
+                                            position: absolute;
+                                        }
+                                        .remove_field:hover {
+                                            text-decoration: none;
+                                        }
+
+                                        select#years {
+                                            height: 38px;
+                                        }
+
+
+                                        .sticky-header {
+                                            display: flex;
+                                            align-items: center;
+                                            position: sticky;
+                                            top: 0;
+                                            z-index: 1000;
+                                            /* background-color: #007bff; */
+                                            color: white;
+                                            /* padding: 15px; */
+                                        }
+                                        .sticky-header img {
+                                            max-width: 116px;
+                                            margin-right: 10px;
+                                        }
+                                        .sticky-header h5 {
+                                            flex: 1;
+                                            text-align: center;
+                                            margin: 0;
+                                            color: black;
+                                            padding-right: 154px;
+                                        }
+
+
+                                        .sticky-footer {
+                                            margin-top: auto;
+                                            z-index: 1000;
+                                        }
+
+
+                                        .panel-body {
+                                          padding-top: 22px;
+                                          background-color: #DDEEF1;
+                                          max-height: calc(100vh - 100px);
+                                          overflow-y: auto;
+                                      }
+
+                                        body {
+                                            background-color: #19869C;
+                                        }
+
+h3{
+                                        margin-top: -5px;
+    margin-bottom: -10px;
+    /* display: none; */
+    color: #DDEEF1;
+}
+
+
+
+
+
+
+
+.label-column {
+    text-align: right;
+    padding-right: 10px; /* Adjust this value as needed */
+    color: #666666;
+  }
+
+    .table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
+}                
+
+.table-borderless2{
+display: none;
+}
+
+
+.toggle.ios,
+  .toggle-on.ios,
+  .toggle-off.ios {
+    border-radius: 20rem;
+  }
+   .toggle.ios .toggle-handle {
+    border-radius: 20rem;
+  }
+
+
+
+
+
+
+
+
+
+
+  label {
+    display: inline-block;
+    max-width: 138%;
+    margin-bottom: 5px;
+    font-weight: 750;
+    color: #666666;
+    /* width: 138px; */
+}
+
+
+
+
+  .container-fluid {
+
+    margin-bottom: -17px;
+}
+
+
+
+
+
+
+
+
+
+.custom-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px; /* Add margin to the right side */
+  }
+
+  .custom-footer button {
+    margin-left: 10px; /* Add some space between the buttons */
+  }
+
+
+  .panel-heading {
+    padding: 5px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    height: 40px;
+}
+
+
+.panel{
+  border-radius:0px;
+}
+
+
+form {
+  margin-top: -16px;
+}
+  
+
+
+
+
+
+
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 1px;
+
+}
+</style>
+    
+                                </head>
+                                <body>
+
+                                    <div class="panel" style="margin-top: 3px;
+                                    margin-left: 14px;
+                                    margin-right: 14px;
+                                    margin-bottom: 0px;
+                                    background-color: white;">
+                                        <div class="panel-heading">
+                                            <header class="sticky-header">
+                                                
+                                                <img src='ril-side.jpg' alt="Logo">
+                                                    <h5 class="text-center">Business Partner Form</h5>
+                                                </header>
+                                            </div>
+                                            <div class="panel-body">
+
+
+
+                                              
+
+
+                                                
+                                                <div class="container-fluid">
+                                                    <!-- <h1>Bootstrap Form with Table-Like Layout</h1> -->
+                                                    <div class="row justify-content-evently">
+                                                        <form>
+                                                        <div class="col-md-12 col-sm-12" style="background-color: white;">
+                                                        <div class="col-md-5 col-sm-5">
+    
+                                                            <table class="table table-borderless mt-3">
+                                                                <tr>
+                                                                  <td class="label-column"><label for="Code">Code:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="CompanyNm" placeholder="">
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td class="label-column"><label for="Name">Name:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="Name" placeholder="" >
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td class="label-column"><label for="ForeignName">Foreign Name:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="ForeignName" placeholder="" >
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td class="label-column"><label for="Group">Group:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="Group" placeholder="" >
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td class="label-column"><label for="Currency">Currency:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="Currency" placeholder="" >
+                                                                  </td>
+                                                                </tr>
+                                                            </table>
+
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <table class="table table-borderless2">
+                                                                <tr>
+                                                                  <td class="label-column"><label for="name">Name:</label></td>
+                                                                  <td>
+                                                                    <select id="name" name="name" class="form-select">
+                                                                      <option value="option1">Option 1</option>
+                                                                      <option value="option2">Option 2</option>
+                                                                      <!-- Add more options here -->
+                                                                    </select>
+                                                                  </td>
+                                                                </tr>
+                                                            </table>
+                                                          <!-- Second column content here -->
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                      <!-- <div class="row">
+                                                        <div class="col-12">
+                                                          <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </div>
+                                                      </div> -->
+     
+                                                  </div>
+                                                
+
+                                  
+                                                                                                                                        <h3>Company Details</h3>
+                                                        <div class="col-md-12 col-sm-12" id="companydet">
+                                                            <div class="form-group col-md-6 col-sm-6">
+
+                                                              <h4 style="background-color: #EDEDED; padding-left: 10px;">General</h4>
+
+                                                                <table class="table table-borderless">
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="CompanyNm">*Company Name:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="CompanyNm" placeholder="" >
+                                                                      </td>
+                                                                      
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="Address1">Address 1:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="Address1" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="Address2">Address 2:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="Address2" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="Website">Website:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="Website" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="Fax">Fax:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="Fax" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="Phone">Phone:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="Phone" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+
+
+
+
+
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="Mobile Phone">Mobile Phone:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="MobilePhone" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="E-Mail">E-Mail:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="E-Mail" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="Telephone1">Telephone 1:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="Telephone1" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="Telephone2">Telephone 2:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="Telephone2" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="Fax">Fax:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="Fax" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="Web Site">Web Site:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="Web Site" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                </table>
+
+                                                            </div>
+
+                                                                                    <div class="form-group col-md-6 col-sm-6">
+
+                                                                                      <h4 style="background-color: #EDEDED; padding-left: 10px;">Contact Persons</h4>
+
+
+                                                                                        <table class="table table-borderless">
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="ContactID">Contact ID:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="ContactID" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="Title">Title:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="Title" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="FirstName">First Name:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="FirstName" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="Middle Name">Middle Name:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="Middle Name" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="Last Name">Last Name:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="Last Name" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="Position">Position:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="Position" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="Address">Address:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="Address" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="Telephone1">Telephone 1:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="Telephone1" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="Telephone2">Telephone 2:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="Telephone2" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="MobilePhone">Mobile Phone:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="MobilePhone" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="EMail2">E-Mail:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="EMail2" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="DateofBirth">Date of Birth:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="DateofBirth" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="Gender">Gender:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="Gender" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                
+                                                                                        </table>
+
+                                                                                                       
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                        <div class="col-md-12 col-sm-12" id="companydet">
+                                                        <div class="col-md-6 col-sm-6">
+                                                          <h4 style="background-color: #EDEDED; padding-left: 10px;">Addresses</h4>
+                                                            <div class="form-group col-md-6 col-sm-6">
+
+
+
+                                                              <h5 style="background-color: #DCEAF6; padding-left: 10px; margin: 0px 32px;">Pay To</h5>
+
+                                                                <table class="table table-borderless mt-3">
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="AddressID">Address ID:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="AddressID" placeholder="" >
+                                                                      </td>
+                                                                      
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="BFR">Building/Floor/Room:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="BFR" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="StreetNo">Street No.:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="StreetNo" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="StreetPOBox">Street / PO Box:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="StreetPOBox" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="Block">Block:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="Block" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="City">City:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="City" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+
+
+
+
+
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="ZipCode">ZipCode:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="ZipCode" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="State">State:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="State" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="CountryRegion">Country/Region:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="CountryRegion" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="GSTIN">GSTIN:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="GSTIN" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="label-column"><label for="GSTType">GST Type:</label></td>
+                                                                      
+                                                                      <td>
+                                                                        <input type="text" class="form-control input-sm" id="GSTType" placeholder="" >
+                                                                      </td>
+                                                                    </tr>
+
+                                                                </table>
+
+                                                            </div>
+                                                            <div class="form-group col-md-6 col-sm-6">
+
+
+
+                                                              <h5 style="background-color: #DCEAF6; padding-left: 10px; margin: 0px 32px;">Ship To</h5>
+
+                                                              <table class="table table-borderless mt-3">
+                                                                <tr>
+                                                                  <td class="label-column"><label for="AddressID">Address ID:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="AddressID" placeholder="" >
+                                                                  </td>
+                                                                  
+                                                                </tr>
+                                                                <tr>
+                                                                  <td class="label-column"><label for="BFR">Building/Floor/Room:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="BFR" placeholder="" >
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td class="label-column"><label for="StreetNo">Street No.:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="StreetNo" placeholder="" >
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td class="label-column"><label for="StreetPOBox">Street / PO Box:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="StreetPOBox" placeholder="" >
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td class="label-column"><label for="Block">Block:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="Block" placeholder="" >
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td class="label-column"><label for="City">City:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="City" placeholder="" >
+                                                                  </td>
+                                                                </tr>
+
+
+
+
+
+                                                                <tr>
+                                                                  <td class="label-column"><label for="ZipCode">ZipCode:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="ZipCode" placeholder="" >
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td class="label-column"><label for="State">State:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="State" placeholder="" >
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td class="label-column"><label for="CountryRegion">Country/Region:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="CountryRegion" placeholder="" >
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td class="label-column"><label for="GSTIN">GSTIN:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="GSTIN" placeholder="" >
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td class="label-column"><label for="GSTType">GST Type:</label></td>
+                                                                  
+                                                                  <td>
+                                                                    <input type="text" class="form-control input-sm" id="GSTType" placeholder="" >
+                                                                  </td>
+                                                                </tr>
+
+                                                            </table>
+
+                                                            </div>
+                                                            </div>
+
+                                                                                    <div class="form-group col-md-6 col-sm-6">
+
+                                                                                      <h4 style="background-color: #EDEDED; padding-left: 10px;">Payment Terms</h4>
+
+
+                                                                                        <table class="table table-borderless">
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="TotalDiscount">Total Discount %</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="TotalDiscount" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="CreditLimit">Credit Limit:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="CreditLimit" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="CommitmentLimit">Commitment Limit:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="CommitmentLimit" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="PaymentTerms">PaymentTerms:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="PaymentTerms" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="InterestonArrears">Interest on Arrears %:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="InterestonArrears" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="PAN">P.A.N. No.:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="PAN" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="LSTVAT">LST/VAT No.:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="LSTVAT" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="CSTNo">CST No.:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="CSTNo" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="TANNo">TAN No.:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="TANNo" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="ServiceTaxNo">Service Tax No.:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="ServiceTaxNo" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="CompanyType">Company Type:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="CompanyType" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="NatureofBusiness">Nature of Business:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="NatureofBusiness" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="AssesseeType">Assessee Type:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="AssesseeType" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="TINNo">TIN No.:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="TINNo" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="TINNo">TIN No.:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <input type="text" class="form-control input-sm" id="TINNo" placeholder="" >
+                                                                                              </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                              <td class="label-column"><label for="TINNo" style="color: white;">TIN No.:</label></td>
+                                                                                              
+                                                                                              <td>
+                                                                                                <div class="form-check">
+                                                                                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                                                                  <label class="form-check-label" for="flexCheckChecked">
+                                                                                                    Subject To Withholding Tax
+                                                                                                  </label>
+                                                                                                </div>
+                                                                                              </td>
+                                                                                            </tr>
+
+                                                                
+                                                                                        </table>
+
+                                                                                                       
+                                                                                                        </div>
+
+                                                                                                    </div>
+
+
+                                                                                                 
+                                                                                                            </div>
+
+                                                                                                            <footer class="sticky-footer bg-secondary py-3">
+                                                                                                                <div class="container custom-footer">
+                                                                                                                  <button type="button" class="btn btn-success">Save</button>
+                                                                                                                  <button type="button" class="btn btn-danger">Reset</button>
+                                                                                                                </div>
+                                                                                                              </footer>
+
+
+                                                                                                            <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+                                                                                                                                                                                                                                        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+                                                                                                                                                                                                                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script> -->
+                                                                                                        </body>
+
+
+
+                                                                                                        
+
+                                                                                                        <script src='{% static "./static/js/jquery.min.js" %}'></script>
+
+                                                                                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+
+                                                                                                        <script src='{% static "./static/js/main.js" %}'></script>
+
+                                                                                                    </html>
